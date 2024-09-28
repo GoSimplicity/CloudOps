@@ -156,6 +156,11 @@ type ResourceRds struct {
 	BindNodes []*TreeNode `json:"bind_nodes" gorm:"many2many:bind_rdss;comment:绑定的树节点列表"` // 绑定的树节点
 }
 
+type BindResourceReq struct {
+	NodeId      int   `json:"nodId" `
+	ResourceIds []int `json:"resource_ids" binding:"required,min=1"`
+}
+
 // StringList 封装了 []string 类型，用于与数据库中的逗号分隔字符串进行转换
 type StringList []string
 
